@@ -25,17 +25,23 @@ library
     exposed-modules:
       MyModule
       Plutus.Contracts.Game
+      Plutus.Contracts.HelloWorldNumeric
+      -- Plutus.Contracts.GameStateMachine
     build-depends:
       base >= 4.9 && < 5,
       aeson,
+      lens >= 4.19.2,
       bytestring,
+      cardano-api,
       containers,
       freer-extras,
       playground-common,
       plutus-contract,
       plutus-tx-plugin,
       plutus-tx,
-      plutus-ledger
+      plutus-ledger,
+      plutus-ledger-api,
+      serialise
     hs-source-dirs: src examples/src
     default-language: Haskell2010
     ghc-options:
@@ -73,11 +79,32 @@ executable plutus-starter-pab
     -threaded
   build-depends:
     base >= 4.9 && < 5,
+    cardano-api -any,
     plutus-contract -any,
     plutus-pab -any,
     plutus-starter -any,
     aeson -any,
+    lens >= 4.19.2,
     freer-simple -any,
     prettyprinter -any,
     freer-extras -any,
-    plutus-ledger -any
+    plutus-ledger -any,
+    plutus-ledger-api -any,
+    serialise -any,
+    bytestring -any
+
+executable plutus-budget-calc
+  main-is: Main.hs
+  hs-source-dirs: budget
+  ghc-options:
+    -threaded
+  build-depends:
+    base >= 4.9 && < 5,
+    cardano-api -any,
+    plutus-contract -any,
+    plutus-starter -any,
+    lens >= 4.19.2,
+    plutus-ledger -any,
+    plutus-ledger-api -any,
+    serialise -any,
+    bytestring -any
