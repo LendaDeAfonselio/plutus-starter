@@ -24,7 +24,7 @@ import PlutusTx.Prelude as P hiding (Semigroup (..), unless)
 import Prelude hiding (($))
 
 {-
-  The "hello world" message as a data item
+  The "hello world" message as a data item, test
 -}
 
 hello :: Data
